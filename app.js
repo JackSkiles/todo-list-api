@@ -90,7 +90,14 @@ app.delete('/api/todos/:id', (req, res) => {
       error: 'Please provide a proper id',
     });
   }
-  
+  // let newTodoList = todoList;
+  todoList.forEach((todo) => {
+    if (todo.id === Number.parseInt(req.params.id)) {
+      todoList.slice(todo.id, todo.id + 1);
+    }
+  })
+  const status = Object.keys(updatedTodo).length ? 200 : 404;
+  res.status(status).json(updatedTodo);
 })
 // DELETE /api/todos/:id
 
