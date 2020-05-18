@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
-    <title>Todo App</title>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <h1 class="todo-title">Todo App</h1>
-            <ul class="todo-list js-todos"></ul>
-            <form class="new-todo-form js-add-form" action="#">
-                <input type="text" class="new-todo-text js-input">
-                <button class="todo-button add" type="submit">Add</button>
-            </form>
+    <div class="card-body" id="header">
+        <h1 id="title">Lists</h1>
+    </div>
+    <div id="space"></div>
+    <div id="container">
+        <div id="par">
+            <div id="text"><h1>Welcome to your personal todo list!</h1></div>
+            <div id="text"><h2>Add whatever item you would like.</h2></div>
         </div>
     </div>
+    <div class="card">
+        <h1 class="todo-title">Todo List</h1>
+        <ul class="todo-list js-todos"></ul>
+        <form class="new-todo-form js-add-form" action="#">
+            <input type="text" class="new-todo-text js-input">
+            <button class="todo-button add" type="submit">Add</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

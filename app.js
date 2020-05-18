@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static('./public'));
 
-const todoList = [
+let todoList = [
   {
     id: 1,
     todo: 'Implement a REST API',
@@ -27,6 +27,7 @@ const todoList = [
 ];
 
 app.get('/api/todos', (req, res)=> {
+  console.log(todoList);
   res.json(todoList);
 });
 
@@ -83,22 +84,18 @@ app.put('/api/todos/:id', (req, res) => {
   res.status(status).json(updatedTodo);
 })
 // PUT /api/todos/:id
-
 app.delete('/api/todos/:id', (req, res) => {
-  if (!req.body.todo) {
-    res.status(400).json({
-      error: 'Please provide a proper id',
-    });
-  }
-  // let newTodoList = todoList;
-  todoList.forEach((todo) => {
+  let found = false;
+  todoList = todoList.filter((todo) => {
     if (todo.id === Number.parseInt(req.params.id)) {
-      todoList.slice(todo.id, todo.id + 1);
+      found = true;
+      return false;
     }
-  })
-  const status = Object.keys(updatedTodo).length ? 200 : 404;
-  res.status(status).json(updatedTodo);
-})
+    return true;
+  });
+  const status = found ? 200 : 404;
+  res.status(status).json(todoList);
+});
 // DELETE /api/todos/:id
 
 app.listen(3000, function () {
