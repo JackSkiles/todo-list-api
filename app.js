@@ -30,7 +30,7 @@ let todoList = [
 ];
 
 app.get('/index', (req, res) => {
-  res.render('about', {
+  res.render('index', {
     title: 'About this',
     todoList: todoList,
   })
@@ -71,7 +71,7 @@ app.post('/api/todos', (req, res) => {
       todo: req.body.todo,
     };
     todoList.push(newTodo);
-    res.json(newTodo);
+    res.redirect('/index');
   }
 })
 // POST /api/todos
