@@ -29,7 +29,7 @@ let todoList = [
   },
 ];
 
-app.get('/about', (req, res) => {
+app.get('/index', (req, res) => {
   res.render('about', {
     title: 'About this',
     todoList: todoList,
