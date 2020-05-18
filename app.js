@@ -2,29 +2,39 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
+
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(express.static('./public'));
 
 let todoList = [
   {
     id: 1,
-    todo: 'Implement a REST API',
+    todo: 'Ham and cheese',
   },
   {
     id: 2,
-    todo: 'Implement a REST API',
+    todo: 'Pizza',
   },
   {
     id: 3,
-    todo: 'Implement a REST API',
+    todo: 'Popplers',
   },
   {
     id: 4,
-    todo: 'Implement a REST API',
+    todo: 'Burgers',
   },
 ];
+
+app.get('/about', (req, res) => {
+  res.render('about', {
+    title: 'About this',
+    todoList: todoList,
+  })
+})
 
 app.get('/api/todos', (req, res)=> {
   console.log(todoList);
